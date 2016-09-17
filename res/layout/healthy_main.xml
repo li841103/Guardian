@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ssau="http://schemas.android.com/apk/res/com.szhd.guardian"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.szhd.ui.AnnularUI
+        android:id="@+id/annularui"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_below="@+id/annularui" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="4dp"
+            android:text="上次得分"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_marginLeft="40dp"
+            android:text="88"
+            android:textColor="#4d4d4d"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="4dp"
+            android:text="平均得分"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView4"
+            android:layout_marginRight="40dp"
+            android:text="90"
+            android:textColor="#4d4d4d"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:background="@drawable/list_item_bg"
+        android:layout_below="@+id/relativeLayout1">
+
+        <com.szhd.ui.SmallSingleAnnularUI
+            android:id="@+id/smallsingleannularui1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            ssau:uiclocor="#0CC2F7"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/smallsingleannularui1"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="#4d4d4d"
+            android:text="睡眠" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView6"
+            android:layout_below="@+id/textView6"
+            android:layout_marginTop="7dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="时长" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView7"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="8小时21分" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView8"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="起止" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView9"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:text="22:42-06:03" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView10"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="起夜" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/textView11"
+            android:text="3次" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="7dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="雷打不动型" />
+ 
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:background="@drawable/list_item_bg"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_marginTop="15dp">
+
+        <com.szhd.ui.SmallSingleAnnularUI
+            android:id="@+id/smallsingleannularui2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            ssau:uiclocor="#80D710"/>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/smallsingleannularui2"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="#4d4d4d"
+            android:text="运动" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView14"
+            android:layout_below="@+id/textView14"
+            android:layout_marginTop="7dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="累计" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView14"
+            android:layout_toRightOf="@+id/textView15"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="201141步" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView14"
+            android:layout_toRightOf="@+id/textView16"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="耗能" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView14"
+            android:layout_toRightOf="@+id/textView17"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:text="11417卡" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_below="@+id/textView15"
+            android:layout_marginTop="7dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="晚餐加个蛋" />
+ 
+    </RelativeLayout>
+
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:background="@drawable/list_item_bg"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_marginTop="15dp">
+
+        <com.szhd.ui.SmallSingleAnnularUI
+            android:id="@+id/smallsingleannularui3"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            ssau:uiclocor="#FF215A"/>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/smallsingleannularui3"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="#4d4d4d"
+            android:text="心率" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView22"
+            android:layout_below="@+id/textView22"
+            android:layout_marginTop="7dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="平均" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView22"
+            android:layout_toRightOf="@+id/textView23"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="90次/分" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView22"
+            android:layout_toRightOf="@+id/textView24"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="异常" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView22"
+            android:layout_toRightOf="@+id/textView25"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:text="0次" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView23"
+            android:layout_below="@+id/textView23"
+            android:layout_marginTop="7dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="稳如泰山" />
+ 
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:background="@drawable/list_item_bg"
+        android:layout_below="@+id/relativeLayout4"
+        android:layout_marginTop="15dp">
+
+        <com.szhd.ui.SmallSingleAnnularUI
+            android:id="@+id/smallsingleannularui4"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            ssau:uiclocor="#F7910C"/>
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/smallsingleannularui4"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="#4d4d4d"
+            android:text="体温" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView30"
+            android:layout_below="@+id/textView30"
+            android:layout_marginTop="7dp"
+            android:textSize="11sp"
+            android:textColor="#80d710"
+            android:text="上次" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView30"
+            android:layout_toRightOf="@+id/textView31"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#80d710"
+            android:textSize="11sp"
+            android:text="36.5℃" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView30"
+            android:layout_toRightOf="@+id/textView32"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="18dp"
+            android:textSize="11sp"
+            android:textColor="#999999"
+            android:text="异常" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView30"
+            android:layout_toRightOf="@+id/textView33"
+            android:textColor="#ca4341"
+            android:textSize="11sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:text="1次" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView31"
+            android:layout_below="@+id/textView31"
+            android:layout_marginTop="7dp"
+            android:textColor="#4d4d4d"
+            android:textSize="11sp"
+            android:text="能量有点多" />
+ 
+    </RelativeLayout>
+    
+    </RelativeLayout>
+</ScrollView>

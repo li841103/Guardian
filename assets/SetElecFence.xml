@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <SetElecFence xmlns="http://tempuri.org/">
+      <telnum>13888888888</telnum>
+      <devicenum>1524</devicenum>
+      <content>|104.065600:30.548768:1500:1:6:0:60|105.062900:30.549668:100:5:12:0:160|102.065600:30.545488:500:7:6:30:1440|</content>
+    </SetElecFence>
+  </soap12:Body>
+</soap12:Envelope>

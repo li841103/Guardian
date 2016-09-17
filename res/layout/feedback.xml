@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#12b7f5" >
+
+        <ImageView
+            android:id="@+id/button2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="反馈"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/button2"
+            android:textColor="#ffffff"
+            android:textSize="18sp" 
+            android:text="返回" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout1" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="96dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="老是死机"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="114dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/textView1"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textView1"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="定位不准确"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="171dp"
+            android:layout_height="36dp"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="部分功能不能使用"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="114dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textView3"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="界面不好用"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="152dp"
+            android:layout_height="36dp"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="卡顿或异常退出"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="134dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textView5"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="信息不够明确"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="132dp"
+            android:layout_height="36dp"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/feedback"
+            android:gravity="center"
+            android:text="内存消耗太高"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="113.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="请输入您的宝贵意见"
+        android:textSize="11sp"
+        android:gravity="start"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:textColorHint="#999999"
+        android:background="@drawable/edtfeed"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout2">
+    </EditText>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/editText1" >
+
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="50dp"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true" >
+
+		    <Button
+		        android:id="@+id/button1"
+		        android:layout_width="match_parent"
+		        android:layout_height="40dp"
+		        android:layout_marginLeft="10dp"
+		        android:layout_marginRight="10dp"
+		        android:background="@drawable/setinfobtn"
+		        android:text="完成"
+		        android:textColor="@color/white"
+		        android:textSize="18sp" />
+		</RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

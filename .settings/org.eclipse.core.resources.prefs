@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/com/szhd/guardian/AccountActivity.java=UTF-8
+encoding//src/com/szhd/guardian/LoginActivity.java=UTF-8
+encoding//src/com/szhd/guardian/MainActivity.java=UTF-8
+encoding//src/com/szhd/guardian/RegisterActivity.java=UTF-8
+encoding//src/com/szhd/guardian/SetAccountInfo.java=UTF-8
+encoding//src/com/szhd/guardian/SetActivity.java=UTF-8
+encoding//src/com/szhd/guardian/SetSecurityActivity.java=UTF-8
+encoding//src/com/szhd/server/ImgHttpClient.java=UTF-8
+encoding//src/com/szhd/util/ResidentNotificationHelper.java=UTF-8
+encoding//src/com/szhd/webservice/Communicate.java=UTF-8
+encoding//src/com/szhd/webservice/MatchString.java=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

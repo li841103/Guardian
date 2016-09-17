@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="60dp" >
+
+        <EditText
+            android:id="@+id/queryaddr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/querydown"
+            android:layout_toRightOf="@+id/queryback"
+            android:background="@drawable/queryaddr"
+            android:drawableLeft="@drawable/actionbar_search_icon"
+            android:ems="10"
+            android:hint="搜索"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/queryback"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/findback" />
+
+        <Button
+            android:id="@+id/querydown"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/queryaddr"
+            android:background="@drawable/setinfobtn"
+            android:textColor="@color/white"
+            android:text="确定" />
+
+    </RelativeLayout>
+    
+	<LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:background="#EBEBEB" >
+    </LinearLayout>
+    
+    <com.szhd.ui.AutoListView
+        android:id="@+id/addrrequest"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.szhd.guardian"
+    android:versionCode="1"
+    android:versionName="0.8" 
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--允许应用程序改变网络状态-->    
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+	<!--允许应用程序改变WIFI连接状态-->    
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>    
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 拨打电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- 蓝牙权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    
+    <supports-screens
+	    android:anyDensity="true"
+	    android:largeScreens="true"
+	    android:normalScreens="false"
+	    android:resizeable="true"
+	    android:smallScreens="true"/>
+    
+    <application
+        android:allowBackup="true"
+        android:label="Guardian"
+        android:icon="@drawable/ic_launcher" 
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+        <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="AK8TcnQZxz8D7XTsD8rtiXw6LI2cAubh" />
+        
+        <activity
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+	       	android:launchMode="singleTask"
+	       	android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+	       	android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.MainActivity">
+        </activity>
+        
+        
+        
+         
+   
+        
+        <activity
+	       	android:launchMode="singleTask"
+	       	android:screenOrientation="portrait"
+	       	android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:name="com.szhd.guardian.SlidingMenuActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:name="com.szhd.guardian.SetActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SetSthActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:name="com.szhd.ui.FunctionActivity">
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.szhd.ui.HeartDialogActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.ui.FindAddrActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.ui.ElectricFenceActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.ui.ClockActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.RegisterActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.king.photo.activity.MainActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.king.photo.activity.ImageGridActivity" 
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.king.photo.activity.PhotoActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.king.photo.activity.AlbumActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.king.photo.activity.ImageFile" >
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.king.photo.activity.ShowAllPhoto" >
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.king.photo.activity.GalleryActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.map.PolygonMap">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.map.Alert">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.HistoricalPath">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.RegisterQuActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.ModifyPassword">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.AccountActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SetSecurityActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SetAccountInfo">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SecurityVerification">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.FeedBack">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.AboutUs">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.ChangeAdmin">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.Healthy_Main">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SleepActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SportActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.HeartRateActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.TemperatureActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.SportMoreActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.HeartMoreRateActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.CountDown">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.guardian.TemperatureMoreActivity">
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name="com.szhd.ui.SleepClockActivity">
+        </activity>
+        <receiver android:name=".CloseNoticeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="cn.campusapp.action.closenotice"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

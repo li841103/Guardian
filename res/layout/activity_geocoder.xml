@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+
+        android:clickable="true" />
+
+    <RelativeLayout
+        android:id="@+id/ZoomControlView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="11dp"
+        android:layout_marginRight="10dp" >
+
+        <Button
+            android:id="@+id/zoomin"
+            android:layout_width="49dp"
+            android:layout_height="45dp"
+            android:background="@drawable/map_big" />
+
+        <Button
+            android:id="@+id/zoomout"
+            android:layout_width="49dp"
+            android:layout_height="54dp"
+            android:layout_below="@+id/zoomin"
+            android:background="@drawable/map_small" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/trajectory"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_above="@+id/reversegeocode"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/historicalpath" />
+
+    <Button
+        android:id="@+id/reversegeocode"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_alignLeft="@+id/trajectory"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/button_style" />
+
+</RelativeLayout>

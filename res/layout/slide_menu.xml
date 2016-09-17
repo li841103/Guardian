@@ -1,0 +1,254 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/safety"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_below="@+id/admin" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="16dp"
+            android:layout_height="17dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/icon_safe" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView2"
+            android:gravity="center"
+            android:text="权限移交"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/versionupdate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_below="@+id/clearcachingdata" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="16.5dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/icon_new" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView4"
+            android:gravity="center"
+            android:text="版本更新"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/quitapp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_marginBottom="40dp" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/icon_exit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView3"
+            android:gravity="center"
+            android:text="退出登录"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/clearcachingdata"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout6"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_marginTop="12dp" >
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="17.5dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/icon_clear" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView5"
+            android:gravity="center"
+            android:text="清除缓存"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout6"
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/safety"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="#E5E5E5" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/admin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_marginTop="157dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/icon_user" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView1"
+            android:gravity="center"
+            android:text="账户"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout7"
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/versionupdate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="#E5E5E5" >
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/abus"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout7"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_marginTop="12dp" >
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="20dp"
+            android:layout_height="13.5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/about_us" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView6"
+            android:gravity="center"
+            android:text="关于我们"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/bak"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/abus"
+        android:background="@drawable/list_item_bg"
+        android:clickable="true"
+        android:layout_marginTop="12dp" >
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="18dp"
+            android:layout_height="12.5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/bak" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imageView7"
+            android:gravity="center"
+            android:text="反馈"
+            android:textColor="#505050"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+    
+    
+</RelativeLayout>

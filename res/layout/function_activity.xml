@@ -1,0 +1,178 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:szhd="http://schemas.android.com/apk/res/com.szhd.guardian"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="23dp" >
+
+        <ImageView
+            android:id="@+id/electricity"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/stat_sys_battery_100" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="00:00" />
+
+        <ImageView
+            android:id="@+id/signal"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/electricity"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/signal_2" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/signal"
+            android:src="@drawable/bluetooth_y" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/imageView1"
+            android:src="@drawable/gps_my" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:src="@drawable/naozhong" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/imageView3"
+            android:src="@drawable/w_w" />
+
+    </RelativeLayout>
+    
+    
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp" 
+        android:background="#12b7f5">
+
+        <ImageView
+            android:id="@+id/functionback"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="定位" />
+
+        <ImageView
+            android:id="@+id/findaddr"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/search" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/functionback"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="返回" />
+
+    </RelativeLayout>
+
+        <com.szhd.ui.NoScrollViewPager
+            android:id="@+id/id_viewpager"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/tabbg"
+        android:orientation="horizontal" >
+
+        <com.szhd.ui.ChangeColorIconWithTextView
+            android:id="@+id/id_indicator_one"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            szhd:icon="@drawable/location_nor"
+            szhd:text="@string/tab_weixin"
+            szhd:text_size="14sp"/>
+
+        <com.szhd.ui.ChangeColorIconWithTextView
+            android:id="@+id/id_indicator_two"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            szhd:icon="@drawable/health_nor"
+            szhd:text="@string/tab_contact"
+            szhd:text_size="14sp" />
+        
+        <com.szhd.ui.ChangeColorIconWithTextView
+            android:id="@+id/id_indicator_three"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            szhd:icon="@drawable/caution_nor"
+            szhd:text="@string/tab_find"
+            szhd:text_size="14sp" />
+
+        <com.szhd.ui.ChangeColorIconWithTextView
+            android:id="@+id/id_indicator_four"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            szhd:icon="@drawable/function_nor"
+            szhd:text="@string/tab_me"
+            szhd:text_size="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

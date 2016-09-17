@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#12b7f5" >
+
+        <ImageView
+            android:id="@+id/button2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="用户信息"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/button2"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="返回" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="650dp" >
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        
+	    <com.szhd.ui.RoundImageView
+	        android:id="@+id/cornersimageview"
+	        android:layout_width="130dp"
+	        android:layout_height="130dp"
+	        android:layout_marginTop="25dp"
+	        imagecontrol:border_outside_color="#12b7f5"
+	        imagecontrol:border_thickness="2dp"
+	        android:layout_centerHorizontal="true"
+	        android:layout_gravity="center_horizontal"
+	        android:src="@drawable/girl" />
+
+   </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" 
+        android:layout_below="@+id/relativeLayout2" >
+	    
+	    <EditText
+	        android:id="@+id/setname"
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+	        android:layout_centerVertical="true"
+	        android:hint="姓名" 
+            android:gravity="center"
+	        android:textColorHint="#999999"
+	        android:textColor="#4d4d4d"
+	        android:textSize="18sp"
+	        android:background="@drawable/shape" 
+	        android:singleLine="true"  
+	        android:inputType="textPersonName" />
+        
+    </RelativeLayout>
+	
+	
+	    <RelativeLayout
+	        android:id="@+id/linearlayout1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:layout_below="@+id/relativeLayout3"
+	        android:background="@drawable/shape" 
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical" >
+	
+	        <TextView
+	            android:id="@+id/setgender"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:layout_marginTop="5dp"
+	            android:textSize="18sp"
+	            android:gravity="center"
+	            android:text="女" />
+
+	        <RelativeLayout
+	        	android:id="@+id/relativelayout4"
+	        	android:layout_below="@+id/setgender"
+	        	android:layout_marginLeft="10dp"
+	        	android:layout_marginRight="10dp"
+	            android:layout_width="match_parent"
+	            android:background="#CCCCCC"
+	            android:layout_height="1dp" >
+	        </RelativeLayout>
+	
+	        <TextView
+	            android:id="@+id/setage"
+	        	android:layout_below="@+id/relativelayout4"
+	       		android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:background="#ffffff" 
+	            android:gravity="center"
+	            android:textSize="18sp"
+	            android:text="12" />
+	        
+	        <RelativeLayout
+	        	android:id="@+id/relativelayout5"
+	        	android:layout_below="@+id/setage"
+	        	android:layout_marginLeft="10dp"
+	        	android:layout_marginRight="10dp"
+	            android:layout_width="match_parent"
+	            android:background="#CCCCCC"
+	            android:layout_height="1dp" >
+	        </RelativeLayout>
+	        
+	        <TextView
+	            android:id="@+id/setheight"
+	        	android:layout_below="@+id/relativelayout5"
+	  		    android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:background="#ffffff" 
+	            android:gravity="center"
+	            android:textSize="18sp"
+	            android:text="120" />
+	        
+	        <RelativeLayout
+	        	android:id="@+id/relativelayout6"
+	        	android:layout_below="@+id/setheight"
+	        	android:layout_marginLeft="10dp"
+	        	android:layout_marginRight="10dp"
+	            android:layout_width="match_parent"
+	            android:background="#CCCCCC"
+	            android:layout_height="1dp" >
+	        </RelativeLayout>
+	        
+	        <TextView
+	            android:id="@+id/setweight"
+	        	android:layout_below="@+id/relativelayout6"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:background="#ffffff" 
+	            android:gravity="center"
+	            android:textSize="18sp"
+	            android:text="40" />
+	
+	        <RelativeLayout
+	        	android:id="@+id/relativelayout7"
+	        	android:layout_below="@+id/setweight"
+	        	android:layout_marginLeft="10dp"
+	        	android:layout_marginRight="10dp"
+	            android:layout_width="match_parent"
+	            android:background="#CCCCCC"
+	            android:layout_height="1dp" >
+	        </RelativeLayout>
+	
+	        <TextView
+	            android:id="@+id/setbirth"
+	        	android:layout_below="@+id/relativelayout7"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:textSize="18sp"
+	            android:gravity="center"
+	            android:text="2000年01月01日" />
+	        
+	    </RelativeLayout>
+	
+	
+	    <RelativeLayout
+	        android:id="@+id/linearlayout6"
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_below="@+id/linearlayout1"
+	        android:focusable="true"   
+			android:focusableInTouchMode="true">
+
+
+	        <TextView
+	            android:id="@+id/setspecial"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:layout_marginRight="10dp"
+	            android:layout_marginLeft="10dp"
+	            android:background="@drawable/shape"
+	            android:drawableRight="@drawable/icon_photo_nor"
+	            android:paddingLeft="10dp"
+	            android:singleLine="true"
+	            android:hint="已选择 0 张图片"
+	            android:gravity="center"
+	            android:textSize="18sp" >
+	        </TextView>
+	       
+
+	    </RelativeLayout>
+	
+	    <RelativeLayout
+	        android:id="@+id/linearlayout7"
+	        android:layout_width="match_parent"
+	        android:layout_marginTop="10dp"
+	        android:gravity="center_vertical" 
+	        android:focusable="true"   
+			android:focusableInTouchMode="true"
+	        android:layout_below="@+id/linearlayout6"
+	        android:layout_height="40dp" >
+	
+	
+	        <EditText
+	            
+	            android:id="@+id/deviceid"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:layout_marginRight="10dp"
+	            android:textSize="18sp"
+	            android:hint="设备ID"
+	            android:paddingLeft="10dp"
+	            android:layout_marginLeft="10dp"
+	            android:background="@drawable/shape" 
+	        	android:singleLine="true" 
+	            android:inputType="phone" />
+	
+	    </RelativeLayout>
+
+	    <RelativeLayout
+	        android:id="@+id/linearlayout8"
+	        android:gravity="center_vertical" 
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_below="@+id/linearlayout7"
+	        android:focusable="true"
+	        android:focusableInTouchMode="true" >
+
+	        <EditText
+	            android:id="@+id/setaddr"
+	            android:paddingLeft="10dp"
+	            android:layout_width="match_parent"
+	            android:hint="家庭住址"
+	            android:layout_height="40dp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="10dp"
+	            android:background="@drawable/shape"
+	            android:gravity="center"
+	            android:singleLine="true"
+	            android:textSize="18sp" >
+	        </EditText>
+	    </RelativeLayout>
+
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+	        android:layout_marginTop="10dp" 
+	        android:layout_below="@+id/linearlayout8">
+
+	        <Button
+	            android:id="@+id/button1"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:layout_marginLeft="10dp"
+	            android:layout_marginRight="10dp"
+	            android:background="@drawable/setinfobtn"
+	            android:text="完成"
+	            android:textColor="@color/white"
+	            android:textSize="18sp" />
+	    </RelativeLayout>
+	    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
