@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -56,8 +55,9 @@ public class SetAccountInfo extends Activity {
 					intent.putExtra("question1", l.get(4));
 					intent.putExtra("question2", l.get(5));
 					intent.putExtra("question3", l.get(6));
+					// intent.putExtra("id", id);
 					intent.putExtra("username", requone.getText().toString());// 把输入的账号发过去
-					intent.putExtra("phonenum", s[0]);// 把Imsi号码发过去
+					intent.putExtra("phonenum", Communicate.IMSI);// 把Imsi号码发过去
 					startActivity(intent);
 					break;
 				case 7:
@@ -77,22 +77,6 @@ public class SetAccountInfo extends Activity {
 				try {
 					while (loginthread) {
 						if (Communicate.STATE == true) {
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(0));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(1));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(2));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(3));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(4));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(5));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(6));
-							Log.e("main",
-									"我来看看那这是什么东西：" + Communicate.RESULT.get(7));
 							if (Communicate.RESULT.get(0).equals("999999999")) {// 状态码
 								List<String> list = new ArrayList<String>();
 								list.add(Communicate.RESULT.get(1));// 密保答案1

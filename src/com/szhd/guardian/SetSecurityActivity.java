@@ -91,32 +91,26 @@ public class SetSecurityActivity extends Activity {
 						if (Communicate.STATE == true) {
 							if (Communicate.RESULT.get(0)
 									.equals("RegistFailed")) {
-								Message message = myhandler.obtainMessage();
-								message.what = 0;
-								myhandler.sendMessage(message);
+								myhandler.sendEmptyMessage(0);
 								// 关闭发送状态
 								Communicate.STATE = false;
 							} else if (Communicate.RESULT.get(0).equals(
 									"RegistSuccess")) {
-								Message message = myhandler.obtainMessage();
-								message.what = 1;
-								myhandler.sendMessage(message);
+								myhandler.sendEmptyMessage(1);
 								// 关闭发送状态
 								Communicate.STATE = false;
 							} else if (Communicate.RESULT.get(0).equals(
 									"RegistAllready")) {
-								Message message = myhandler.obtainMessage();
-								message.what = 2;
-								myhandler.sendMessage(message);
+								myhandler.sendEmptyMessage(2);
 								// 关闭发送状态
 								Communicate.STATE = false;
 							} else if (Communicate.RESULT.get(0).equals(
 									"ModifySecurOK")) {
-								Message message = myhandler.obtainMessage();
-								message.what = 11;
-								myhandler.sendMessage(message);
+								myhandler.sendEmptyMessage(11);
 								// 关闭发送状态
 								Communicate.STATE = false;
+							} else {
+
 							}
 						}
 						Thread.sleep(100);
@@ -375,6 +369,7 @@ public class SetSecurityActivity extends Activity {
 											// 修改密保
 											List<String> s = new ArrayList<String>();
 											s.add(intent.getStringExtra("id"));
+
 											s.add(intent
 													.getStringExtra("question1"));
 											s.add(intent

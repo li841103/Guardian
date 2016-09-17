@@ -162,10 +162,11 @@ public class MainActivity extends Activity implements OnItemClickListener,
 
 					intent.putExtra("id", s.get(1));
 					intent.putExtra("username", s.get(2));
-					intent.putExtra("phonenum", s.get(3));
-					intent.putExtra("device_no", s.get(4));
-					intent.putExtra("relationship", s.get(5));
-					intent.putExtra("name", s.get(6));
+					intent.putExtra("password", s.get(3));
+					intent.putExtra("phonenum", s.get(4));
+					intent.putExtra("device_no", s.get(5));
+					intent.putExtra("relationship", s.get(6));
+					intent.putExtra("name", s.get(7));
 					startActivity(intent);
 					break;
 				case 20:
@@ -489,6 +490,8 @@ public class MainActivity extends Activity implements OnItemClickListener,
 				Communicate.sss.add("</id>");
 				Communicate.sss.add("<username>");
 				Communicate.sss.add("</username>");
+				Communicate.sss.add("<password>");
+				Communicate.sss.add("</password>");
 				Communicate.sss.add("<SIMnum>");
 				Communicate.sss.add("</SIMnum>");
 				Communicate.sss.add("<device_no>");
