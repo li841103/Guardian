@@ -163,6 +163,29 @@ public class AccountActivity extends Activity {
 						try {
 							Log.e("main", "进入了拍照后上传");
 							saveFile(newBitmap);
+							new Thread() {
+								@Override
+								public void run() {
+									File file = new File(getExternalCacheDir(),
+											AVATAR_NAME + id + ".jpg");
+
+									super.run();
+									if (file.exists()) {
+										try {
+											Log.e("开始上传头像", "开始上传头像");
+											new ImgHttpClient(
+													AccountActivity.this)
+													.uploadForm(null, msave,
+															file, AVATAR_NAME
+																	+ id
+																	+ ".jpg");// 调用Post上传请求
+										} catch (IOException e) {
+											Log.e("Io异常：", e.getMessage());
+											e.printStackTrace();
+										}
+									}
+								}
+							}.start();
 
 						} catch (IOException e1) {
 							Log.e("main", "IO异常：" + e1.getMessage());
@@ -208,26 +231,6 @@ public class AccountActivity extends Activity {
 								// 关闭发送状态
 								Communicate.STATE = false;
 								// 上传图片
-								File file = new File(getExternalCacheDir(),
-										AVATAR_NAME + id + ".jpg");
-								if (file.exists()) {
-									try {
-										Log.e("开始上传头像", "开始上传头像");
-										new ImgHttpClient(AccountActivity.this)
-												.uploadForm(null, msave, file,
-														AVATAR_NAME + id
-																+ ".jpg");// 调用Post上传请求
-									} catch (IOException e) {
-										Log.e("Io异常：", e.getMessage());
-										e.printStackTrace();
-									}
-
-									// 删除图片
-									/*
-									 * if (file.delete()) { Log.e("main",
-									 * "删除成功！"); }
-									 */
-								}
 
 							}
 							if (Communicate.RESULT.get(0).equals("NoDevice")) {
@@ -283,7 +286,6 @@ public class AccountActivity extends Activity {
 										s.add(repasswordagin.getText()
 												.toString());
 										s.add(sbid.getText().toString());
-
 										List<String> starttags = new ArrayList<String>();
 										starttags.add("<id>");
 										starttags.add("<username>");

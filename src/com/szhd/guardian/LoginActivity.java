@@ -150,11 +150,14 @@ public class LoginActivity extends Activity {
 						Toast.makeText(LoginActivity.this, "请填写密码",
 								Toast.LENGTH_LONG).show();
 					} else {
-						Log.e("IMSI=", Communicate.IMSI);
+
+						Log.e("进入了登录验证通过！", "进入了登录验证通过！+IMSI="
+								+ Communicate.IMSI.toString());
+
 						List<String> s = new ArrayList<String>();
 						s.add(username.getText().toString());
 						s.add(password.getText().toString());
-						s.add(Communicate.IMSI);
+						s.add(Communicate.IMSI.toString());
 						List<String> starttags = new ArrayList<String>();
 						starttags.add("<username>");
 						starttags.add("<pass>");

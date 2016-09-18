@@ -45,6 +45,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.szhd.guardian.R;
 import com.szhd.ui.ElectricFenceActivity;
+import com.szhd.util.MyApplication;
 
 public class PolygonMap extends Activity implements OnMapClickListener,
 		OnMapLongClickListener, OnMarkerClickListener, OnMarkerDragListener {
@@ -120,16 +121,17 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 			}
 		});
 
-		re_selection.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				clearClick();
-				arraymarker.clear();
-				arraylatlng.clear();
-				twolatlng.clear();
-				mbaidumap.setOnMapClickListener(PolygonMap.this);
-			}
-		});
+		re_selection.setOnClickListener(new OnClickListener() {// 点击重新选择
+																// 清楚所有已选择的点
+					@Override
+					public void onClick(View v) {
+						clearClick();
+						arraymarker.clear();
+						arraylatlng.clear();
+						twolatlng.clear();
+						mbaidumap.setOnMapClickListener(PolygonMap.this);
+					}
+				});
 
 		electronic_return.setOnClickListener(new OnClickListener() {
 			@Override
@@ -171,17 +173,25 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	// 画多边形
 	private void drawPolygon(List<LatLng> pts) {
 		// 添加多边形
-		OverlayOptions ooPolygon = new PolygonOptions().points(pts)
-				.stroke(new Stroke(3, 0xFF12B7F5)).fillColor(0x6612B7F5);
+		MyApplication.pts = pts;
+		MyApplication.options = new PolygonOptions().points(pts)// 放入折线坐标点点列表
+				.stroke(new Stroke(3, 0xFF12B7F5)).fillColor(0x6612B7F5);// 设置多边形边框信息
+		// 宽度与颜色0xFF12B7F5
+		// 0x6612B7F5
+		// 多边形填充的颜色
+		OverlayOptions ooPolygon = MyApplication.options;
+
 		mbaidumap.addOverlay(ooPolygon);
 	}
 
 	// 画线
 	private void drawLine(List<LatLng> pts) {
+		// 有两个点了 开始画一条直线
 		if (pts.size() > 1) {
 			// 添加普通折线绘制
 			OverlayOptions ooPolyline = new PolylineOptions().width(4)
-					.color(0xFF12B7F5).points(pts);
+					.color(0xFF12B7F5).points(pts);// 指定折线的颜色和折线的宽度
+
 			Polyline mpolyline = (Polyline) mbaidumap.addOverlay(ooPolyline);
 		}
 	}
@@ -207,15 +217,15 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	}
 
 	@Override
-	public void onMapClick(LatLng ll) {
+	public void onMapClick(LatLng ll) {// 点击地图获取到坐标
 		arraymarker.add(drawMaker(ll));
 		arraylatlng.add(ll);
 		// 取出list中最后两个点
-		if (arraylatlng.size() > 1) {
+		if (arraylatlng.size() > 1) {// 当至少有两个点的时候
 			twolatlng.add(arraylatlng.get(arraylatlng.size() - 1));// 最后一个点
 			twolatlng.add(arraylatlng.get(arraylatlng.size() - 2));// 倒数第二个点
-			drawLine(twolatlng);
-			twolatlng.clear();
+			drawLine(twolatlng);// 在最后两点间划线
+			twolatlng.clear();// 清除存放两点的集合 以便每次都只存入两个点 两个最后的点
 		}
 	}
 
@@ -231,12 +241,12 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	}
 
 	@Override
-	public boolean onMarkerClick(final Marker marker) {
+	public boolean onMarkerClick(final Marker marker) {// 点击Marker
 		// 判断是否为起始点,地图上的点是否可以画出一个图形
 		if (compareLatLng(marker.getPosition(), arraymarker.get(0)
 				.getPosition())
 				&& arraymarker.size() > 2) {
-			clearClick();
+			clearClick();// 清除所有图层 这里Marker都消失
 			// 画多边形
 			drawPolygon(arraylatlng);
 			// 屏蔽map点击事件
@@ -251,6 +261,7 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 				}
 			});
 		} else {
+			// 当前点击不是起始点（点击的是覆盖物不是起始覆盖物）
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					PolygonMap.this);
 			builder.setTitle("提示").setMessage("是否删除此坐标点？")
@@ -284,13 +295,14 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	public void onMarkerDragEnd(Marker marker) {
 		// 判断移动点是否为终点,地图上的点是否可以画出一个图形,判断与起始点的距离,如果距离足够小，绘制多边形
 		if (compareToDouble(mlongitude,
-				arraylatlng.get(arraylatlng.size() - 1).longitude)
-				&& arraymarker.size() > 3
-				&& DistanceUtil.getDistance(marker.getPosition(),
+				arraylatlng.get(arraylatlng.size() - 1).longitude)// 判断当前点击的点是不是初始点
+				&& arraymarker.size() > 3// 至少有4个点
+				&& DistanceUtil.getDistance(marker.getPosition(),// 返回两个点之间的距离<1000米则画图形，arraylatlng.get(0)是存放的初始点marker是最后一次画的点
 						arraylatlng.get(0)) < 1000) {
 			clearClick();
 			// 画多边形
-			drawPolygon(arraylatlng.subList(0, arraylatlng.size() - 1));
+			drawPolygon(arraylatlng);// .subList(0, arraylatlng.size() - 1)
+										// arraylatling中存放了所有坐标点的信息
 			// 屏蔽map点击事件
 			mbaidumap.setOnMapClickListener(new OnMapClickListener() {
 				@Override
@@ -303,10 +315,13 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 				}
 			});
 		} else {
-			Log.d("onMarkerDragEnd", marker.getPosition().latitude + "");
-			Log.d("onMarkerDragEnd", marker.getPosition().longitude + "");
+			// 当前点击的点不是初始点 或者没有靠近初始点1000米以内 或者没有4个点
+			Log.e("onMarkerDragEnd", marker.getPosition().latitude + "");
+			Log.e("onMarkerDragEnd", marker.getPosition().longitude + "");
 			for (int i = 0; i < arraymarker.size(); i++) {
-				if (compareToDouble(mlongitude, arraylatlng.get(i).longitude)) {
+				if (compareToDouble(mlongitude, arraylatlng.get(i).longitude)) {// 判断当前点击的点有没有和之前点击过的点有相等的情况
+																				// 如果有
+																				// 将之前的点的坐标替换成当前的点坐标
 					arraymarker.set(i, marker);
 					arraylatlng.set(i, marker.getPosition());
 					clearClick();
@@ -319,10 +334,10 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	@Override
 	public void onMarkerDragStart(Marker marker) {
 		mlongitude = marker.getPosition().longitude;
-		Log.d("已有的", arraymarker.get(1).getPosition().latitude + "");
-		Log.d("已有的", arraymarker.get(1).getPosition().longitude + "");
-		Log.d("onMarkerDragStart", marker.getPosition().latitude + "");
-		Log.d("onMarkerDragStart", marker.getPosition().longitude + "");
+		Log.e("已有的", arraymarker.get(1).getPosition().latitude + "");
+		Log.e("已有的", arraymarker.get(1).getPosition().longitude + "");
+		Log.e("onMarkerDragStart", marker.getPosition().latitude + "");
+		Log.e("onMarkerDragStart", marker.getPosition().longitude + "");
 	}
 
 	private boolean compareLatLng(LatLng l1, LatLng l2) {
@@ -362,6 +377,9 @@ public class PolygonMap extends Activity implements OnMapClickListener,
 	@Override
 	protected void onResume() {
 		mmapview.onResume();
+		if (MyApplication.options != null && MyApplication.pts != null) {// 之前设置过电子围栏的多边形
+			drawPolygon(MyApplication.pts);// 再画出多边形;
+		}
 		super.onResume();
 	}
 

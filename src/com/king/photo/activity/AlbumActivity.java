@@ -110,7 +110,6 @@ public class AlbumActivity extends Activity {
 				startActivity(intent);
 			}
 			startActivity(intent);
-
 			finish();
 		}
 

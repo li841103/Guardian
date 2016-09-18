@@ -101,7 +101,8 @@ public class MapFragment extends Fragment implements
 	private Button reversegeocode;
 	private Button trajectory;
 	private String mname = "";
-	private static final int DINGWEI = 1;
+	private static final int DINGWEI = 71;
+	private static final int GET_POSITION = 72;
 	// 当前城市
 	public static String nowcity = "";
 	// 纬度偏移量
@@ -161,33 +162,17 @@ public class MapFragment extends Fragment implements
 		reversegeocode.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// 先去数据库里面取得手表传来的经纬度信息
-				new Thread() {
-					public void run() {
-
-						Log.e("发送请求获取实时位置", "发送请求获取实时位置+devioce="
-								+ MyApplication.device);
-						List<String> s = new ArrayList<String>();
-						s.add(MyApplication.device);
-						List<String> starttags2 = new ArrayList<String>();
-						starttags2.add("<devicenum>");
-						Communicate.sss.add("<def1>");
-						Communicate.sss.add("</def1>");
-						Communicate.sss.add("<position>");
-						Communicate.sss.add("</position>");
-
-						Communicate.xmlclassdata = MatchString.addString(
-								getContext(), "GetAddress.xml", s, starttags2);
-						Communicate.mark = true;
-						try {
-							Thread.sleep(4500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					};
-				}.start();
-
+				// 先向手表发送请求实时位置信息
+				Log.e("向手表发送获取实时数据", "向手表发送获取实时数据");
+				List<String> s2 = new ArrayList<String>();
+				s2.add(MyApplication.device);
+				List<String> starttags3 = new ArrayList<String>();
+				starttags3.add("<devicenum>");
+				Communicate.sss.add("<GetPositionResult>");
+				Communicate.sss.add("</GetPositionResult>");
+				Communicate.xmlclassdata = MatchString.addString(getContext(),
+						"GetAddress.xml", s2, starttags3);
+				Communicate.mark = true;
 			}
 		});
 
@@ -381,7 +366,6 @@ public class MapFragment extends Fragment implements
 				public void handleMessage(android.os.Message msg) {
 					switch (msg.what) {
 					case DINGWEI:
-
 						String[] strarr = (String[]) msg.obj;
 						String jindu = strarr[0];
 						String weidu = strarr[1];
@@ -389,14 +373,21 @@ public class MapFragment extends Fragment implements
 						long Longweidu = Long.parseLong(weidu, 16);
 						longitu = Longjindu / 100000 + longitudedeviation;
 						latitude = Longweidu / 100000 + latitudedeviation;
-
 						Log.e("开始定位", "longitu=" + longitu + "latitude"
 								+ latitude);
 						cenpt = new LatLng(latitude, longitu);
-
 						dingwei();
 						break;
-
+					case GET_POSITION:
+						while (true) {
+							getAddress();
+							try {
+								Thread.sleep(4500);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
 					default:
 						break;
 					}
@@ -429,6 +420,12 @@ public class MapFragment extends Fragment implements
 								msg.what = DINGWEI;
 								msg.obj = arrStrings;
 								myhandler.sendMessage(msg);
+								Communicate.STATE = false;
+							}
+							if ("GetPositionOK".equals(Communicate.RESULT
+									.get(0))) {
+								Log.e("手表已接收请求", "手表已接收请求");
+								myhandler.sendEmptyMessage(GET_POSITION);
 								Communicate.STATE = false;
 							}
 						}
@@ -980,6 +977,22 @@ public class MapFragment extends Fragment implements
 			showPop2(result.getAddress());
 		}
 
+	}
+
+	private void getAddress() {
+		Log.e("发送请求获取实时位置", "发送请求获取实时位置+devioce=" + MyApplication.device);
+		List<String> s = new ArrayList<String>();
+		s.add(MyApplication.device);
+		List<String> starttags2 = new ArrayList<String>();
+		starttags2.add("<devicenum>");
+		Communicate.sss.add("<def1>");
+		Communicate.sss.add("</def1>");
+		Communicate.sss.add("<position>");
+		Communicate.sss.add("</position>");
+
+		Communicate.xmlclassdata = MatchString.addString(getContext(),
+				"GetAddress.xml", s, starttags2);
+		Communicate.mark = true;
 	}
 
 }

@@ -132,31 +132,26 @@ public class SetActivity extends Activity {
 
 					while (loginthread) {
 						if (Communicate.STATE == true) {
-							if (Communicate.RESULT.get(0).equals("OK")) {
+							if (Communicate.RESULT.get(0).equals("AddOK")) {
 								// 关闭发送状态
 								mHandler.sendEmptyMessage(OK);
 								Communicate.STATE = false;
 							}
-							if (Communicate.RESULT.get(0).equals(
-									"QueryDeviceOK")) {
-								mHandler.sendEmptyMessage(DEVICE_OK);
-								Log.e("查询该device存在", "查询该device存在");
-								Communicate.STATE = false;
-							}
+
 							if (Communicate.RESULT.get(0).equals(
 									"QueryDeviceExistsNO")) {
 								mHandler.sendEmptyMessage(DEVICE_NO);
+								Communicate.STATE = false;
+							}
+							if (Communicate.RESULT.get(0).equals(
+									"QueryDeviceExistsOK")) {
+								mHandler.sendEmptyMessage(DEVICE_OK);
 								Communicate.STATE = false;
 							}
 
 							if (Communicate.RESULT.get(0).equals("ExistsNO")) {
 								Log.e("main", "device没有被使用");
 								mHandler.sendEmptyMessage(DEVICE_EXISTS_NO);
-								Communicate.STATE = false;
-							}
-							if (Communicate.RESULT.get(0).equals("ExistsYES")) {
-								Log.e("main", "device有被使用");
-								mHandler.sendEmptyMessage(DEVICE_EXISTS_YES);
 								Communicate.STATE = false;
 							}
 							if (Communicate.RESULT.get(0).equals("UpdateOK")) {
@@ -243,7 +238,6 @@ public class SetActivity extends Activity {
 		}
 
 		mHandler = new Handler() {
-
 			@Override
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
@@ -267,7 +261,7 @@ public class SetActivity extends Activity {
 					UpdateSpecial();
 					break;
 				case DEVICE_OK:
-					// queryDeviceExists();
+
 					if (addAndUpdateBoolean) {
 						updateUserData(MyApplication.device + "");
 					} else {
@@ -301,56 +295,7 @@ public class SetActivity extends Activity {
 
 			}
 
-			private void updateUserData(String device) {
-				if (AvatarBitmap != null) {
-					new Thread() {
-						public void run() {
-							try {
-								File saveFile = saveFile(AvatarBitmap, 1,
-										SAVE_AVVATAR_FILE_CODE);
-								new ImgHttpClient(SetActivity.this)
-										.uploadForm(null, "a", saveFile,
-												saveFile.getName());
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						};
-					}.start();
-				}
-				Log.e("main", "进入了更新被监护人的方法");
-				String add = "person|U|";
-				JSONObject ja = new JSONObject();
-				try {
-					ja.put("beguard_name", beguard_name);
-					ja.put("beguard_sex", beguard_sex);
-					ja.put("beguard_age", beguard_age);
-					ja.put("beguard_height", beguard_height);
-					ja.put("beguard_weight", beguard_weight);
-					ja.put("beguard_address", beguard_address);
-					ja.put("beguard_address", beguard_address);
-					ja.put("beguard_birth", beguard_birth);
-
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-
-				List<String> s2 = new ArrayList<String>();
-				s2.add(device_no);
-				s2.add(add + ja.toString());
-				Log.e("JSON.tostring=", ja.toString());
-				List<String> starttags2 = new ArrayList<String>();
-				starttags2.add("<devicenum>");
-				starttags2.add("<content>");
-				Communicate.sss.add("<DealbeguardResult>");
-				Communicate.sss.add("</DealbeguardResult>");
-				Communicate.xmlclassdata = MatchString.addString(
-						SetActivity.this, "Dealbeguard.xml", s2, starttags2);
-				Communicate.mark = true;
-			}
-
 			private void queryDeviceExists() {
-
 				String deviced = deviceid.getText().toString();
 				List<String> s = new ArrayList<String>();
 				s.add(deviced);
@@ -386,7 +331,6 @@ public class SetActivity extends Activity {
 			String deviced = deviceid.getText().toString();
 			File file = new File(getExternalCacheDir(), SPECIAL_AVATAR_STRING
 					+ deviced + JPG);
-
 			ja.put("image_name1", "//");
 			ja.put("image_name2", "//");
 			ja.put("image_name3", "//");
@@ -705,24 +649,29 @@ public class SetActivity extends Activity {
 						&& beguard_address.length() != 0) {
 					if (device_no.length() != 0 && device_no != null) {
 
-						Intent intent = getIntent();
-						Bundle bundle = intent.getExtras();
-						int num = getIntent().getIntExtra("num", 0);
-						if (num > 0) {
-							imgList = (ArrayList<ImageItem>) bundle
-									.get("imglist");
-						}
-						List<String> s = new ArrayList<String>();
-						s.add(device_no);
+						if (addAndUpdateBoolean) {
+							updateUserData(MyApplication.device);
+						} else {
+							Intent intent = getIntent();
+							Bundle bundle = intent.getExtras();
+							int num = getIntent().getIntExtra("num", 0);
+							if (num > 0) {
+								imgList = (ArrayList<ImageItem>) bundle
+										.get("imglist");
+							}
+							List<String> s = new ArrayList<String>();
+							s.add(device_no);
 
-						List<String> starttags = new ArrayList<String>();
-						starttags.add("<device>");
-						Communicate.sss.add("<QueryDeviceExistsResult>");
-						Communicate.sss.add("</QueryDeviceExistsResult>");
-						Communicate.xmlclassdata = MatchString.addString(
-								SetActivity.this, "QueryDeviceExists.xml", s,
-								starttags);
-						Communicate.mark = true;
+							List<String> starttags = new ArrayList<String>();
+							starttags.add("<device>");
+							Communicate.sss.add("<QueryDeviceExistsResult>");
+							Communicate.sss.add("</QueryDeviceExistsResult>");
+							Communicate.xmlclassdata = MatchString.addString(
+									SetActivity.this, "QueryDeviceExists.xml",
+									s, starttags);
+							Communicate.mark = true;
+
+						}
 
 					} else {
 
@@ -858,7 +807,7 @@ public class SetActivity extends Activity {
 	 * 保存文件
 	 * 
 	 * @param bm
-	 * @param fileName
+	 * 
 	 * @throws IOException
 	 */
 	public File saveFile(Bitmap bm, int i, int CODE) throws IOException {
@@ -934,35 +883,82 @@ public class SetActivity extends Activity {
 		}.start();
 	}
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		// TODO Auto-generated method stub
-		super.onSaveInstanceState(outState);
-		outState.putString("name", beguard_name);
-		outState.putString("sex", beguard_sex);
-		outState.putString("age", beguard_age);
-		outState.putString("height", beguard_height);
-		outState.putString("weight", beguard_weight);
-		outState.putString("birth", beguard_birth);
-		outState.putString("device", device_no);
-		outState.putString("address", beguard_address);
+	// @Override
+	// protected void onSaveInstanceState(Bundle outState) {
+	// // TODO Auto-generated method stub
+	// super.onSaveInstanceState(outState);
+	// outState.putString("name", beguard_name);
+	// outState.putString("sex", beguard_sex);
+	// outState.putString("age", beguard_age);
+	// outState.putString("height", beguard_height);
+	// outState.putString("weight", beguard_weight);
+	// outState.putString("birth", beguard_birth);
+	// outState.putString("device", device_no);
+	// outState.putString("address", beguard_address);
+	//
+	// }
+	//
+	// @Override
+	// protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	// // TODO Auto-generated method stub
+	// if (savedInstanceState != null) {
+	// setname.setText(savedInstanceState.getString("name"));
+	// setgender.setText(savedInstanceState.getString("sex"));
+	// setage.setText(savedInstanceState.getString("age"));
+	// setheight.setText(savedInstanceState.getString("height"));
+	// setweight.setText(savedInstanceState.getString("weight"));
+	// setbirth.setText(savedInstanceState.getString("birth"));
+	// deviceid.setText(savedInstanceState.getString("device_no"));
+	// setaddr.setText(savedInstanceState.getString("beguard_address"));
+	// }
+	//
+	// }
 
-	}
+	private void updateUserData(String device) {
+		if (AvatarBitmap != null) {
+			new Thread() {
+				public void run() {
+					try {
+						File saveFile = saveFile(AvatarBitmap, 1,
+								SAVE_AVVATAR_FILE_CODE);
+						new ImgHttpClient(SetActivity.this).uploadForm(null,
+								"a", saveFile, saveFile.getName());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				};
+			}.start();
+		}
+		Log.e("main", "进入了更新被监护人的方法");
+		String add = "person|U|";
+		JSONObject ja = new JSONObject();
+		try {
+			ja.put("beguard_name", beguard_name);
+			ja.put("beguard_sex", beguard_sex);
+			ja.put("beguard_age", beguard_age);
+			ja.put("beguard_height", beguard_height);
+			ja.put("beguard_weight", beguard_weight);
+			ja.put("beguard_address", beguard_address);
+			ja.put("beguard_address", beguard_address);
+			ja.put("beguard_birth", beguard_birth);
 
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		if (savedInstanceState != null) {
-			setname.setText(savedInstanceState.getString("name"));
-			setgender.setText(savedInstanceState.getString("sex"));
-			setage.setText(savedInstanceState.getString("age"));
-			setheight.setText(savedInstanceState.getString("height"));
-			setweight.setText(savedInstanceState.getString("weight"));
-			setbirth.setText(savedInstanceState.getString("birth"));
-			deviceid.setText(savedInstanceState.getString("device_no"));
-			setaddr.setText(savedInstanceState.getString("beguard_address"));
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
 
+		List<String> s2 = new ArrayList<String>();
+		s2.add(device_no);
+		s2.add(add + ja.toString());
+		Log.e("JSON.tostring=", ja.toString());
+		List<String> starttags2 = new ArrayList<String>();
+		starttags2.add("<devicenum>");
+		starttags2.add("<content>");
+		Communicate.sss.add("<DealbeguardResult>");
+		Communicate.sss.add("</DealbeguardResult>");
+		Communicate.xmlclassdata = MatchString.addString(SetActivity.this,
+				"Dealbeguard.xml", s2, starttags2);
+		Communicate.mark = true;
 	}
 
 }

@@ -167,6 +167,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 					intent.putExtra("device_no", s.get(5));
 					intent.putExtra("relationship", s.get(6));
 					intent.putExtra("name", s.get(7));
+					MyApplication.device = s.get(5);
 					startActivity(intent);
 					break;
 				case 20:

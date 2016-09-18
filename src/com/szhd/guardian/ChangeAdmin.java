@@ -113,8 +113,8 @@ public class ChangeAdmin extends Activity {
 	private void init() {
 		imageView = (ImageView) findViewById(R.id.imageView1);
 		Intent intent = getIntent();
-		String extra = intent.getStringExtra("first_Guardian");
-		if (extra.equals("true")) {
+		int extra = Integer.parseInt(intent.getStringExtra("first_Guardian"));
+		if (extra == 1) {
 			imageView.setImageResource(R.drawable.star_yel);
 		}
 		lv = (ListView) findViewById(R.id.changeadminlistview);
